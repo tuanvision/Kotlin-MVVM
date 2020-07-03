@@ -2,6 +2,7 @@ package com.example.mvvmquote.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.util.logging.Logger
 
 class FakeQuoteDAO {
     // data access object
@@ -16,7 +17,15 @@ class FakeQuoteDAO {
         quoteList.add(quote)
         quotes.value = quoteList
     }
-
-    fun getQuotes() = quotes as LiveData<List<Quote>>
+//
+//    fun getQuotes() {
+//        quotes as LiveData<List<Quote>>
+//        Logger.getLogger("FakeQuoteDAO").warning("FAKE")
+//
+//    }
+    fun getQuotes() : LiveData<List<Quote>>{
+        Logger.getLogger("FakeQuoteDAO").warning("FAKE")
+        return quotes as LiveData<List<Quote>>
+    }
 
 }
